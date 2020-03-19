@@ -5,15 +5,6 @@ var uglify = require("gulp-uglify");
 var concat = require("gulp-concat");
 var cssnano = require('gulp-cssnano');
 
-
-gulp.task('browserSync', function() {
-  browserSync.init({
-    server: {
-      baseDir: './'
-    },
-  })
-}) 
-
 gulp.task('sass', function(){
   return gulp.src('assets/scss/main.scss')
     .pipe(sass())
@@ -48,4 +39,6 @@ gulp.task('watch', function(){
   gulp.watch('*', browserSync.reload );
 })
 
-//run this command in your terminal: "gulp watch"
+gulp.task('default', function(){
+  console.log("Run : gulp watch");
+})
