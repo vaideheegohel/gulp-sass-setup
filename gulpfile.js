@@ -3,6 +3,7 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var uglify = require("gulp-uglify");
 var concat = require("gulp-concat");
+var cssnano = require('gulp-cssnano');
 
 
 gulp.task('browserSync', function() {
@@ -29,10 +30,22 @@ gulp.task("scripts", function() {
   .pipe(gulp.dest("js/"));
 });
 
+gulp.task('cssnano', function() {
+    return gulp.src('css/main.css')
+        .pipe(cssnano())
+        .pipe(gulp.dest('cssnano'));
+});
+
 gulp.task('watch', function(){
-  gulp.watch('assets/scss/*.scss', gulp.series(['sass']));
-  gulp.watch('assets/scss/*.scss', gulp.series(['scripts']));
-  gulp.watch('assets/scss/*.scss', gulp.series(['browserSync']));
+  browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+  gulp.watch('assets/scss/**/*.scss', gulp.series(['sass']));
+  gulp.watch('assets/js/*.js', gulp.series(['scripts']));
+  gulp.watch('css/main.css', gulp.series(['cssnano']));
+  gulp.watch('*', browserSync.reload );
 })
 
 //run this command in your terminal: "gulp watch"

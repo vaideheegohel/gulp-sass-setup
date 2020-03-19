@@ -1,8 +1,10 @@
 body {
   height: 100vh;
-  background-color: red;
+  background-color: blue;
   margin: 0;
-  display: flex; }
-  body h1 {
-    margin: auto;
-    color: #fff; }
+  display: flex;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center; }
+  body .content {
+    margin: auto; }
