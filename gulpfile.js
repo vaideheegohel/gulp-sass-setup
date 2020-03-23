@@ -27,6 +27,11 @@ gulp.task('cssnano', function() {
         .pipe(gulp.dest('cssnano'));
 });
 
+gulp.task('fonts', function() {
+  return gulp.src('assets/fonts/*')
+  .pipe(gulp.dest('fonts'))
+})
+
 gulp.task('watch', function(){
   browserSync.init({
         server: {
@@ -36,9 +41,10 @@ gulp.task('watch', function(){
   gulp.watch('assets/scss/**/*.scss', gulp.series(['sass']));
   gulp.watch('assets/js/*.js', gulp.series(['scripts']));
   gulp.watch('css/main.css', gulp.series(['cssnano']));
+  gulp.watch('assets/fonts/*', gulp.series(['fonts']));
   gulp.watch('*', browserSync.reload );
 })
 
 gulp.task('default', function(){
-  console.log("Run : gulp watch");
+  console.log("You Should Run : gulp watch");
 })

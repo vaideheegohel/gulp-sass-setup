@@ -1,1 +1,1 @@
-body{height:100vh;background-color:blue;margin:0;display:flex;color:#fff;font-family:sans-serif;text-align:center}body .content{margin:auto}
+@font-face{font-family:BrandonText-Regular;src:url(../fonts/BrandonText-Regular.otf)}body{height:100vh;background-color:blue;margin:0;display:flex;color:#fff;font-family:BrandonText-Regular;text-align:center}body .content{margin:auto}
